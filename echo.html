@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>#tech-space-science access code</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div class="hero is-fullheight">
+      <div class="hero-body has-text-centered">
+        <div class="card column is-half is-offset-one-quarter">
+          <div class="card-content">
+            <p class="subtitle has-text-weight-bold">Access Code</p>
+            <p class="subtitle is-family-monospace" id="access-code">
+              “There are two hard things in computer science: cache
+              invalidation, naming things, and off-by-one errors.”
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    (() => {
+      const accessCodeDiv = document.getElementById("access-code");
+      const urlSearchParams = new URLSearchParams(location.search);
+      const accessCode = urlSearchParams.get("c");
+
+      if (!accessCode) {
+        accessCodeDiv.innerText = "Malformed access code, try again";
+      } else {
+        accessCodeDiv.innerText = accessCode;
+      }
+    })();
+  </script>
+</html>
