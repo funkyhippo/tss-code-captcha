@@ -113,7 +113,7 @@ function main() {
 
   client.on("interactionCreate", async (interaction) => {
     if (interaction.customId === MODAL_CUSTOM_ID) {
-      console.log("Modal interaction by" < interaction.user.username);
+      console.log("Modal interaction by", interaction.user.username);
       const userHash = utils.createHash(interaction.user.id);
       const submittedValue =
         interaction.fields.getTextInputValue(MODAL_TEXT_CUSTOM_ID);
