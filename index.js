@@ -38,9 +38,9 @@ function main() {
       gateChannel.send({
         embeds: [
           new EmbedBuilder()
-            .setTitle("Verification")
+            .setTitle("Verification Required")
             .setDescription(
-              "You must verify before accessing the underlying channel. Press the button to begin."
+              "The underlying channel now requires verification."
             ),
         ],
         components: [
@@ -70,7 +70,8 @@ function main() {
           new EmbedBuilder()
             .setTitle("Code Captcha Required")
             .setDescription(
-              `Please complete this [captcha](${captchaUrl}) here to retrieve your access code.`
+              `Please complete this [captcha](${captchaUrl}) here to retrieve your access code.` +
+                "\n(Remember that you should **NEVER** scan QR codes to verify yourself on Discord)"
             ),
         ],
         components: [
