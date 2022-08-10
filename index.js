@@ -29,11 +29,17 @@ function main() {
   client.on("ready", async () => {
     console.log("Client ready.");
     const gateChannel = await client.channels.fetch(CHANNEL);
-    const lastMessage = await gateChannel.messages.fetch(
-      gateChannel.lastMessageId
-    );
+    let error = false;
+    let lastMessage;
+    try {
+        lastMessage = await gateChannel.messages.fetch(
+          gateChannel.lastMessageId
+        );
+    } catch (e) {
+        error = true;
+    }
 
-    if (!gateChannel.lastMessageId || lastMessage?.user?.id !== client.id) {
+    if (error || !gateChannel.lastMessageId || lastMessage?.user?.id !== client.id) {
       console.log("Initializing gate message.");
       gateChannel.send({
         embeds: [
