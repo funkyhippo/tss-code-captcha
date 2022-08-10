@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:18
 
 WORKDIR /home/node/tss-code-captcha
 COPY package*.json ./
